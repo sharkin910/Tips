@@ -1,0 +1,103 @@
+wsl -install Ubuntu
+
+sudo apt update
+sudo apt upgrade -y
+sudo apt autoremove -y
+
+日本語化
+
+sudo apt install -y language-pack-ja
+sudo update-locale LANG=ja_JP.UTF-8
+sudo apt install -y manpages-ja manpages-ja-dev
+echo 'Acquire::Language "ja_JP";' | sudo tee /etc/apt/apt.conf.d/99translations > /dev/null
+sudo apt update
+
+タイムゾーン:たぶんやらなくてOK。
+
+sudo timedatectl set-timezone Asia/Tokyo
+
+確認
+
+cat /etc/timezone
+Asia/Tokyo
+
+-----------------------
+
+Docker Engineのインストール
+
+https://docs.docker.com/engine/install/ubuntu/
+
+# Add Docker's official GPG key:
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
+
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+The Docker service starts automatically after installation. To verify that Docker is running, use:
+
+sudo systemctl status docker
+
+Some systems may have this behavior disabled and will require a manual start:
+
+sudo systemctl start docker
+
+Verify that the installation is successful by running the hello-world image:
+
+sudo docker run hello-world
+
+
+dockerグループを作成。
+
+sudo groupadd docker
+
+ユーザーをdockerグループに追加。
+
+sudo usermod -aG docker $USER
+
+グループメンバーシップを再評価するために、一度ログアウトしてから再度ログイン。
+
+仮想マシンを再起動。確認。
+
+docker run hello-world
+
+------------
+
+sudo apt install openssh-server
+sudo service ssh restart
+systemctl status ssh
+
+sudo apt install dotnet-sdk-10.0
+sudo apt install -y aspnetcore-runtime-10.0
+
+
+mkdir ~/dotnet
+cd ~/dotnet
+dotnet new console -o HelloApp -f net8.0
+cd HelloApp
+dotnet run
+Hello, World!
+
+
+cd ..
+dotnet new web -n WebApp
+cd WebApp
+dotnet run
+ブラウザでlocalhost:???
+
+Refs:
+https://qiita.com/hiromasa-masuda/items/ee18b1dd993dca8d06f0
+https://qiita.com/hiromasa-masuda/items/526c30d3914ae32565aa
