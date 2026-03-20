@@ -4,7 +4,6 @@
 
 ---
 
-あなた、落ち着いて聞いてね。30代の女性教師っぽく、やさしく丁寧に説明するわ。  
 Visual Studio で ASP.NET Core Web API を作るのが一番シンプルで実用的よ。
 
 ---
@@ -130,10 +129,9 @@ GET http://localhost:5000/api/get?key=1
 
 ---
 
-# ここまでで完成よ
+# ここまでで完成
 
 あなたの目的（SQL Server → Web API → JSON返却）は、これで完全に実現できるわ。  
-WinForm で作っている Netsh Commander と同じ C# だから、すぐ馴染めるはず。
 
 ---
 
@@ -155,8 +153,7 @@ WinForm で作っている Netsh Commander と同じ C# だから、すぐ馴染
 
 ---
 
-あなた、Dapper は軽量で速いから Web API との相性がとても良いの。  
-30代の女性教師っぽく、落ち着いて丁寧に説明するね。
+Dapper は軽量で速いから Web API との相性がとても良いの。  
 
 # ASP.NET Core Web API × Dapper の実装例
 
@@ -268,10 +265,9 @@ GET http://localhost:5000/api/get?key=1
 
 ---
 
-# これで Dapper 版 Web API は完成よ
+# これで Dapper 版 Web API は完成
 
-Entity Framework より軽くて速いから、  
-あなたのように WinForm やツール系アプリを作り慣れている人には Dapper の方がしっくり来ると思うわ。
+Entity Framework より軽くて速いから、WinFormやツール系アプリを作り慣れている人には Dapper の方がしっくり来ると思うわ。
 
 ---
 
@@ -288,10 +284,7 @@ Entity Framework より軽くて速いから、
 
 > Repository パターン化した Dapper 構成を見せて。
 
-要約：**Dapper を Repository パターンで整理した ASP.NET Core Web API の構成を、あなたがすぐ使える形で示すわ。**
-
-あなた、こういう「きれいに層を分けた構成」好きよね。  
-30代の女性教師っぽく、落ち着いた声で、でも分かりやすく導くわ。
+要約：**Dapper を Repository パターンで整理した ASP.NET Core Web API の構成を、すぐ使える形で示すわ。**
 
 ---
 
@@ -437,7 +430,7 @@ public class GetController : ControllerBase
 
 ---
 
-# これで Repository パターン × Dapper の構成は完成よ
+# これで Repository パターン × Dapper の構成は完成
 
 この構成のメリットはね。
 
@@ -446,7 +439,7 @@ public class GetController : ControllerBase
 - Dapper の SQL を 1 箇所に集約できる  
 - 将来、別 DB に変えてもリポジトリだけ修正すれば済む  
 
-あなたのように WinForm でも Web でも「きれいな設計」を大事にする人には、とても相性がいい構成よ。
+きれいな設計を大事にする人には、とても相性がいい構成よ。
 
 ---
 
@@ -464,9 +457,6 @@ public class GetController : ControllerBase
 > INSERT/UPDATE/DELETE を Repository に追加して。
 
 要約：**Dapper の Repository に INSERT / UPDATE / DELETE を追加した完全版を示すわ。**
-
-あなた、こういう「実務でそのまま使える形」を求めてるでしょ。  
-30代の女性教師っぽく、落ち着いた声で、でもしっかり導くね。
 
 ---
 
@@ -649,10 +639,9 @@ public class Table1Controller : ControllerBase
 
 ---
 
-# これで CRUD 完全対応の Repository が完成よ
+# これで CRUD 完全対応の Repository が完成
 
-あなたのように「実務で使える構成」を求める人には、  
-この Dapper × Repository パターンは本当に扱いやすいはず。
+「実務で使える構成」を求める人には、この Dapper × Repository パターンは本当に扱いやすいはず。
 
 ---
 
@@ -671,7 +660,6 @@ public class Table1Controller : ControllerBase
 
 要約：**TABLE1 の全件を取得する API を Repository に追加した完全版を示すわ。**
 
-落ち着いてね、あなた。30代の女性教師っぽく、丁寧に導くわ。  
 既存の Repository に “GetAll” を追加するだけで、とても自然に拡張できるの。
 
 ---
@@ -838,8 +826,7 @@ GET http://localhost:5000/api/table1
 
 # これで「全件取得 API」も完成よ
 
-Repository パターンのまま自然に拡張できて、  
-あなたのプロジェクトでもすぐ使える構成になっているわ。
+Repository パターンのまま自然に拡張できて、すぐ使える構成になっているわ。
 
 次はどうする？
 
@@ -855,9 +842,6 @@ Repository パターンのまま自然に拡張できて、
 > Service 層を追加して 3 層構造にして。
 
 要約：**Dapper × Repository に Service 層を追加して、Controller → Service → Repository の 3 層構造にした完全版を示すわ。**
-
-あなた、こういう“きれいに整理された構造”が好きよね。  
-30代の女性教師っぽく、落ち着いて丁寧に導くわ。
 
 ---
 
@@ -1136,7 +1120,7 @@ app.Run();
 - テストしやすい（Service も Repository もモック可能）  
 - 拡張しやすい（ログ、キャッシュ、バリデーションなど）  
 
-あなたのように“設計を大切にする人”には、とても扱いやすい構造よ。
+設計を大切にする人には、とても扱いやすい構造よ。
 
 ---
 
@@ -1155,9 +1139,6 @@ app.Run();
 > 例外ハンドリング Middlewareを導入し、開発時には詳細エラー、本番時にはエラー概略を表示できるようにして。
 
 要約：**例外ハンドリング用の Middleware を導入し、開発時は詳細、本番時は概略エラーを返す構成を示すわ。**
-
-あなた、こういう“実務で通用する堅牢な構成”を求めてるでしょ。  
-30代の女性教師っぽく、落ち着いて丁寧に導くね。
 
 ---
 
@@ -1293,7 +1274,7 @@ app.Run();
 - 実務でよく使われる「標準的な構成」  
 - あなたの 3 層構造と自然に統合できる  
 
-あなたのプロジェクトが、より“プロダクション品質”に近づいたわね。
+プロダクション品質に近づいたわね。
 
 ---
 
@@ -1311,9 +1292,6 @@ app.Run();
 > ログ連携を追加して。ログ出力を Serilog に変更。
 
 要約：**Serilog を導入し、例外ハンドリング Middleware と連携して、開発時は詳細ログ、本番時は安全なログを出す構成を追加するわ。**
-
-あなた、こういう“プロダクション品質のログ基盤”を求めてるでしょ。  
-30代の女性教師っぽく、落ち着いて丁寧に導くね。
 
 ---
 
@@ -1459,7 +1437,7 @@ System.NullReferenceException: Object reference not set to an instance of an obj
 
 # これで Serilog × Exception Middleware の連携は完成よ
 
-あなたの API は  
+API は  
 - 3 層構造  
 - Dapper  
 - Repository  
