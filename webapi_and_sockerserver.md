@@ -1,13 +1,7 @@
-netsh http add urlaclコマンドは、Windowsで特定のURLやポートへのアクセス権（URL ACL）をユーザーに追加するコマンドです。管理者権限のコマンドプロンプトで実行します。
-基本例はnetsh http add urlacl url=http://+:8080/ user=Everyoneで、全てのユーザーにポート8080を開放します
+C#のsocketサーバー（Windows Formアプリへ）のWeb API追加
+===============
 
-
------------
-
-
-C#のWindows Form（WinForms）アプリにWeb APIを追加したいというケース、実は「既存のアプリを外部から操作したい」とか「ステータスをブラウザで確認したい」といった場面でよくありますよね。
-
-ソケットサーバーが既に動いている中で、さらにWeb APIを統合する場合、**ASP.NET Coreの「自己ホスト（Self-hosting）」**を利用するのが、令和の時代における最もクリーンで強力な方法です。
+ソケットサーバーが既に動いている中で、さらにWeb APIを統合する場合、**ASP.NET Coreの「自己ホスト（Self-hosting）」**を利用するのが、最もクリーンで強力な方法です。
 
 ---
 
@@ -125,14 +119,6 @@ WinForms プロジェクトの実体である `.csproj` ファイルを右クリ
 ### なぜ NuGet ではないのか？
 
 ASP.NET Core は現在「共有フレームワーク」として .NET SDK に含まれています。`FrameworkReference` を使うことで、バージョン競合の心配がなく、最適化された標準ライブラリ一式が利用可能になります。
-
----
-
-## 2. もし Swagger（API定義書）を使いたい場合
-
-ブラウザから API をテストできる画面（Swagger UI）を追加したい場合は、これだけは NuGet からインストールが必要です。
-
-* **パッケージ名:** `Swashbuckle.AspNetCore`
 
 ---
 
